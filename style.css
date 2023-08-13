@@ -1,0 +1,361 @@
+body {
+    background-color: hsl(222, 26%, 31%);
+    display: grid;
+    height: 95vh;
+    place-items: center;
+    font-family: 'League Spartan', sans-serif;
+}
+
+/* the head */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1, .theme {
+    color: white;
+}
+
+.theme {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.theme span {
+    font-weight: bold;
+}
+
+.buttons {
+    background-color: hsl(223, 31%, 20%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    border-radius: 20%;
+}
+
+.buttons::after {
+    content: "";
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    top: 0;
+    position: absolute;
+    background-color: inherit;
+    z-index: -1;
+}
+
+.buttons::before {
+    content: "";
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    top: 0;
+    position: absolute;
+    background-color: inherit;
+    z-index: -1;
+}
+
+.buttons>div {
+    background-color: hsl(6, 63%, 50%);
+    border-radius: 50%;
+    position: relative;
+    font-weight: bold;
+    cursor: pointer;
+}
+.choosen {
+    opacity: 1;
+}
+.not {
+    opacity: 0;
+}
+
+.one::after {
+    content: "1";
+    position: absolute;
+}
+
+.two::after {
+    content: "2";
+    position: absolute;
+}
+
+.three::after {
+    content: "3";
+    position: absolute;
+}
+
+/* the output */
+
+.output {
+    background-color: hsl(224, 36%, 15%);
+    color: white;
+    text-align: right;
+}
+
+/* the actual btns */
+
+.btns-box {
+    background-color: hsl(223, 31%, 20%);
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.calc-btn {
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.num, .operator, .point {
+    background-color: hsl(30, 25%, 89%);
+    color: hsl(221, 14%, 31%);
+}
+
+.del, .reset {
+    background-color: hsl(225, 21%, 49%);
+    color: white;
+}
+
+.equal {
+    background-color: hsl(6, 63%, 50%);
+    color: white;
+}
+
+
+@media screen and (max-height : 700px) {
+    .container {
+        margin-top: 1em;
+    }
+}
+@media screen and (max-height : 900px) and ( min-width : 750px) {
+    .container {
+        margin-top: 2em;
+    }
+}
+
+@media screen and (max-width : 749px) {
+    .container {
+        width: 22em;
+        height: 40em;
+        min-height: 40em;
+    }
+
+    /* the head */
+    h1 {
+        font-size: 3em;
+    }
+
+    .theme {
+        width: 45%;
+    }
+
+    .buttons {
+        width: 3.5em;
+        height: 1.5em;
+    }
+
+    .buttons::after {
+        left: -0.3em;
+    }
+
+    .buttons::before {
+        right: -0.3em;
+    }
+
+    .buttons>div {
+        width: 1em;
+        height: 1em;
+    }
+
+    .one::after {
+        left: 30%;
+        top: -30px;
+    }
+
+    .two::after {
+        left: 30%;
+        top: -30px;
+    }
+
+    .three::after {
+        left: 30%;
+        top: -30px;
+    }
+
+    /* the output */
+    .output {
+        height: 6em;
+        padding: 1em;
+        line-height: 4.5em;
+        border-radius: 0.5em;
+        margin: 1.5em 0;
+    }
+
+    .output span {
+        font-size: 2.5em;
+        font-weight: bold;
+    }
+
+    /* the actual btns */
+    .btns-box {
+        height: 30em;
+        padding: 1.5em;
+        border-radius: 0.7em;
+        gap: 1em 1em;
+        text-align: center;
+    }
+
+    .calc-btn {
+        border-radius: 0.4em;
+
+    }
+
+    .num span, .operator span, .point span {
+        font-size: 2.5em;
+        font-weight: bold;
+    }
+
+    .reset span, .del span, .equal span {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .num, .operator, .del, .point {
+        width: calc((100% - 3em) / 4);
+        height: 4.5em;
+    }
+
+    .reset, .equal {
+        width: calc((100% - 1em) / 2);
+        height: 4em;
+    }
+
+    .num, .operator, .point {
+        box-shadow: inset -1px -4px 0 0 hsl(28, 16%, 65%);
+    }
+
+    .del, .reset {
+        box-shadow: inset -1px -4px 0 0 hsl(224, 28%, 35%);
+    }
+
+    .equal {
+        box-shadow: inset -1px -4px 0 0 hsl(6, 70%, 34%);
+    }
+}
+
+@media screen and (min-width : 750px) {
+    .container {
+        width: 45em;
+        height: 55em;
+        min-height: 55em;
+    }
+
+    /* the head */
+    h1 {
+        font-size: 4em;
+    }
+
+    .theme {
+        width: 30%;
+    }
+
+    .theme span {
+        font-size: 1.4em;
+    }
+
+
+    .buttons {
+        width: 5em;
+        height: 2em;
+    }
+
+    .buttons::after {
+        left: -0.4em;
+    }
+
+    .buttons::before {
+        right: -0.4em;
+    }
+
+    .buttons>div {
+        width: 1.2em;
+        height: 1.2em;
+        font-size: 1.1em;
+    }
+
+    .one::after {
+        left: 30%;
+        top: -40px;
+    }
+
+    .two::after {
+        left: 30%;
+        top: -40px;
+    }
+
+    .three::after {
+        left: 30%;
+        top: -40px;
+    }
+
+    /* the output */
+    .output {
+        height: 9em;
+        padding: 2em;
+        line-height: 6em;
+        border-radius: 1em;
+        margin: 2em 0 2.5em;
+    }
+
+    .output span {
+        font-size: 4em;
+        font-weight: bold;
+    }
+
+    /* the actual btns */
+    .btns-box {
+        height: 38em;
+        padding: 2em;
+        border-radius: 1.5em;
+        gap: 1.5em 1.5em;
+        text-align: center;
+    }
+
+    .calc-btn {
+        border-radius: 1em;
+    }
+
+    .num span, .operator span, .point span {
+        font-size: 3em;
+        font-weight: bold;
+    }
+
+    .reset span, .del span, .equal span {
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    .num, .operator, .del, .point {
+        width: calc((100% - 4.5em) / 4);
+        height: 5.5em;
+    }
+
+    .reset, .equal {
+        width: calc((100% - 1.5em) / 2);
+        height: 5em;
+    }
+
+    .num, .operator, .point {
+        box-shadow: inset -2px -6px 0 0 hsl(28, 16%, 65%);
+    }
+
+    .del, .reset {
+        box-shadow: inset -2px -6px 0 0 hsl(224, 28%, 35%);
+    }
+
+    .equal {
+        box-shadow: inset -2px -6px 0 0 hsl(6, 70%, 34%);
+    }
+}
