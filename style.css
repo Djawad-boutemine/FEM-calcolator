@@ -246,11 +246,13 @@ h1, .theme {
     body {
         align-items: center;
         min-height: 65em;
+
     }
     .container {
         width: 45em;
         height: 55em;
         min-height: 55em;
+        zoom: 0.9;
     }
 
     /* the head */
