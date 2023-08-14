@@ -2,7 +2,7 @@ body {
     background-color: hsl(222, 26%, 31%);
     display: grid;
     height: 95vh;
-    place-items: center;
+    justify-content: center;
     font-family: 'League Spartan', sans-serif;
 }
 
@@ -68,7 +68,7 @@ h1, .theme {
     opacity: 1;
 }
 .not {
-    opacity: 0;
+    background-color: transparent !important;
 }
 
 .one::after {
@@ -92,8 +92,13 @@ h1, .theme {
     background-color: hsl(224, 36%, 15%);
     color: white;
     text-align: right;
+    overflow: hidden;
 }
 
+.output span {
+    white-space: nowrap;
+    /* text-overflow: ellipsis; */
+}
 /* the actual btns */
 
 .btns-box {
@@ -124,20 +129,12 @@ h1, .theme {
 }
 
 
-@media screen and (max-height : 700px) {
-    .container {
-        margin-top: 1em;
-    }
-}
-@media screen and (max-height : 900px) and ( min-width : 750px) {
-    .container {
-        margin-top: 2em;
-    }
-}
+
 
 @media screen and (max-width : 749px) {
     .container {
-        width: 22em;
+        padding-top: 2em;
+        width: 20em;
         height: 40em;
         min-height: 40em;
     }
@@ -148,7 +145,7 @@ h1, .theme {
     }
 
     .theme {
-        width: 45%;
+        width: 35%;
     }
 
     .buttons {
@@ -190,7 +187,7 @@ h1, .theme {
         padding: 1em;
         line-height: 4.5em;
         border-radius: 0.5em;
-        margin: 1.5em 0;
+        margin: 1em 0 1.5em;
     }
 
     .output span {
@@ -233,19 +230,23 @@ h1, .theme {
     }
 
     .num, .operator, .point {
-        box-shadow: inset -1px -4px 0 0 hsl(28, 16%, 65%);
+        box-shadow: inset 1px -4px 0 0 hsl(28, 16%, 65%);
     }
 
     .del, .reset {
-        box-shadow: inset -1px -4px 0 0 hsl(224, 28%, 35%);
+        box-shadow: inset 1px -4px 0 0 hsl(224, 28%, 35%);
     }
 
     .equal {
-        box-shadow: inset -1px -4px 0 0 hsl(6, 70%, 34%);
+        box-shadow: inset 1px -4px 0 0 hsl(6, 70%, 34%);
     }
 }
 
 @media screen and (min-width : 750px) {
+    body {
+        align-items: center;
+        min-height: 65em;
+    }
     .container {
         width: 45em;
         height: 55em;
@@ -348,14 +349,14 @@ h1, .theme {
     }
 
     .num, .operator, .point {
-        box-shadow: inset -2px -6px 0 0 hsl(28, 16%, 65%);
+        box-shadow: inset -1px -6px 0 0 hsl(28, 16%, 65%);
     }
 
     .del, .reset {
-        box-shadow: inset -2px -6px 0 0 hsl(224, 28%, 35%);
+        box-shadow: inset -1px -6px 0 0 hsl(224, 28%, 35%);
     }
 
     .equal {
-        box-shadow: inset -2px -6px 0 0 hsl(6, 70%, 34%);
+        box-shadow: inset -1px -6px 0 0 hsl(6, 70%, 34%);
     }
 }

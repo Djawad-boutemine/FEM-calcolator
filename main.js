@@ -46,7 +46,7 @@ numberUp.forEach(function (ele, index) {
             themeSpan.style.color = "white";
             screenSpan.style.color = "white";
         }
-        
+
         themeBox.style.backgroundColor = toggleBackground[index];
         body.style.backgroundColor = mainBackground[index];
         numberUp.forEach(function (ele) {
@@ -72,11 +72,83 @@ numberUp.forEach(function (ele, index) {
         })
         redKeys.style.backgroundColor = redKeyBackground[index];
         redKeys.style.boxShadow = `inset -2px -6px 0 0 ${redKeyShadow[index]}`;
-        if ( index === 2) {
+        if (index === 2) {
             redKeys.style.color = "black";
-        }else {
+        } else {
             redKeys.style.color = "white";
         }
 
     }
 })
+
+// setting variables for real work
+
+let output = document.querySelector(".output span");
+let writingBtns = document.querySelectorAll(".num  span, .point span, .operator span");
+let result = document.querySelector(".equal span");
+let deletes = document.querySelector(".del span");
+let reset = document.querySelector(".reset span");
+let str = "";
+let calculated = false;
+
+function clicked(ele) {
+    ele.parentNode.style.transform = "scale(0.9)";
+    let no = setInterval(function () {
+        ele.parentNode.style.transform = "scale(1)";
+        clearInterval(no);
+    }, 100)
+}
+
+writingBtns.forEach(function (ele) {
+    ele.parentNode.addEventListener("click", function () {
+        clicked(ele);
+        if (calculated) {
+            output.innerHTML = "";
+            str = "";
+            calculated = false;
+        }
+        if (output.innerHTML.length < 13) {
+            if (ele.innerHTML === "x") {
+                str += "*";
+                output.innerHTML += "x";
+            } else {
+                output.innerHTML += ele.innerHTML;
+                str += ele.innerHTML;
+            }
+        }
+    })
+})
+
+
+deletes.parentNode.onclick = function () {
+    clicked(deletes);
+    output.innerHTML = output.innerHTML.slice(0, output.innerHTML.length - 1);
+    str = str.slice(0, str.length - 1)
+}
+reset.parentNode.onclick = function () {
+    clicked(reset);
+    output.innerHTML = "";
+}
+result.parentNode.onclick = function () {
+    clicked(result);
+    if (check(str)) {
+        output.innerHTML = eval(str);
+    } else {
+        output.innerHTML = "error";
+    }
+    calculated = true;
+}
+function check(str) {
+    if (+str[0] != str[0] || +str[str.length - 1] != str[str.length -1 ]) {
+        return false;
+    }
+    for (let i = 1 ; i < str.length - 1; i++) {
+        if ( +str[i] != str[i] && +str[i+1] != str[i+1]){
+            return false 
+        }
+        if ( str[i] === "." && +str[i-1] != str[i-1]){
+            return false 
+        }
+    }
+    return true
+}
